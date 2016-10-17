@@ -20,7 +20,7 @@ def scrape_html(link, num):
 	final_data = map(lambda x: x.strip(), [name] + raw_data[::2][1:])
 	writer.writerow(final_data)
 
-writer = csv.writer(open('data/test/award-datails.csv', 'w'))
+writer = csv.writer(open('data/award-datails.csv', 'w'))
 writer.writerow(['Research Title', 'Competition Year', 'Fiscal Year', 'Project Lead Name', 'Institution',
 				 'Department', 'Province', 'Award Amount', 'Installment', 'Program', 'Selection Committee',
 				 'Research Subject', 'Area of Application', 'Co-Researchers', 'Partners', 'Award Summary'])
