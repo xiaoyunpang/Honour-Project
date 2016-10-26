@@ -44,7 +44,7 @@
        "@institution: \"" institution "\", "
        "@department: \"" department "\", "
        "@province: \"" province "\", "
-       "@amount: " amount ", "
+       "@amount: " (string/replace amount #"[$,]" "") ", "
        "@installment: \"" installment "\", "
        "@program: \"" program "\", "
        "@committee: \"" committee "\", "
