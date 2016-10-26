@@ -40,7 +40,7 @@
        "\"[@title: \"" title "\", "
        "@competitionYear: " c-year ", "
        "@fiscalYear: \"" f-year "\", "
-       "@name: \"" name "\", "
+       "@leadName: \"" name "\", "
        "@institution: \"" institution "\", "
        "@department: \"" department "\", "
        "@province: \"" province "\", "
@@ -49,8 +49,8 @@
        "@program: \"" program "\", "
        "@committee: \"" committee "\", "
        "@subject: \"" subject "\", "
-       "@area: \"" application "\", "
-       "@co-researchers: \"" co-researchers "\", "
+       "@areaOfApplication: \"" application "\", "
+       "@coresearchers: \"" co-researchers "\", "
        "@partners: \"" partners "\", "
        "@summary: \"" summary "\"];"))
 
