@@ -38,8 +38,8 @@
     summary 15}]
   (str "insert Award \"" table-name
        "\"[@title: \"" title "\", "
-       "@competition-year: " c-year ", "
-       "@fiscal-year: \"" f-year "\", "
+       "@competitionYear: " c-year ", "
+       "@fiscalYear: \"" f-year "\", "
        "@name: \"" name "\", "
        "@institution: \"" institution "\", "
        "@department: \"" department "\", "
