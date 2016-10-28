@@ -19,6 +19,14 @@
                                )]
         (dorun (map (fn [data] (binding [*out* f] (println data))) read-contents))))))
 
+(defn- polish-text
+  [text]
+  (if (nil? text)
+    text
+    (-> text
+        (string/replace #";" ",")
+        (string/replace #"\"" "'"))))
+
 (defn- parse-line
   [{title 0
     c-year 1
@@ -37,22 +45,22 @@
     partners 14
     summary 15}]
   (str "insert Award \"" table-name
-       "\"[@title: \"" title "\", "
+       "\"[@title: \"" (polish-text title) "\", "
        "@competitionYear: " c-year ", "
        "@fiscalYear: \"" f-year "\", "
        "@leadName: \"" name "\", "
-       "@institution: \"" institution "\", "
-       "@department: \"" department "\", "
+       "@institution: \"" (polish-text institution) "\", "
+       "@department: \"" (polish-text department) "\", "
        "@province: \"" province "\", "
        "@amount: " (string/replace amount #"[$,]" "") ", "
-       "@installment: \"" installment "\", "
-       "@program: \"" program "\", "
-       "@committee: \"" committee "\", "
-       "@subject: \"" subject "\", "
-       "@areaOfApplication: \"" application "\", "
+       "@installment: \"" (string/replace installment #"-" "\\\\-") "\", "
+       "@program: \"" (polish-text program) "\", "
+       "@committee: \"" (polish-text committee) "\", "
+       "@subject: \"" (polish-text subject) "\", "
+       "@areaOfApplication: \"" (polish-text application) "\", "
        "@coresearchers: \"" co-researchers "\", "
        "@partners: \"" partners "\", "
-       "@summary: \"" summary "\"];"))
+       "@summary: \"" (polish-text summary) "\"];"))
 
 (defn -main
   [source-file output-file]
