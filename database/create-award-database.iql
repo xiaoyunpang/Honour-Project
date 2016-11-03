@@ -1,0 +1,18 @@
+create class Award[
+@title : string,
+@competitionYear : int,
+@fiscalYear : string,
+@leadName : string,
+@institution : string,
+@department : string,
+@province : string,
+@amount : int,
+@installment : string,
+@program : string,
+@committee : string,
+@subject : string,
+@areaOfApplication : string,
+@coresearchers : string,
+@partners : string,
+@summary : string
+];
