@@ -3,7 +3,7 @@ package nsercServer;
 public class Research {
 	public String title;
 	public int cYear;
-	public int fYear;
+	public String fYear;
 	public String name;
 	public String institution;
 	public String department;
@@ -22,7 +22,7 @@ public class Research {
 		
 	}
 	
-	public Research(String title, int cYear, int fYear, String name, 
+	public Research(String title, int cYear, String fYear, String name, 
 			String institution, String department, String province, 
 			int amount, String installment, String program, String committee, 
 			String subject, String AOA, String coresearchers, String partners, 
@@ -48,7 +48,7 @@ public class Research {
 	
 	public String getTitle() { return this.title; }
 	public int getcYear() { return this.cYear; }
-	public int getfYear() { return this.fYear; }
+	public String getfYear() { return this.fYear; }
 	public String getName() { return this.name; }
 	public String getInstitution() { return this.institution; }
 	public String getDepartment() { return this.department; }

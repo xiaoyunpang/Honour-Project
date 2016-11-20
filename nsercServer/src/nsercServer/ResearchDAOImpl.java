@@ -1,86 +1,88 @@
 package nsercServer;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.util.ArrayList;
 import java.util.List;
-import javax.sql.DataSource;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapper;
+import inm.iql.ResultSet;
+import inm.object.instance.Instance;
+import inm.client.InmTemplate;
 
 public class ResearchDAOImpl implements ResearchDAO{
-	private JdbcTemplate jdbcTemplate;
+	private InmTemplate inm;
 	
-	public ResearchDAOImpl(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+	public ResearchDAOImpl(InmTemplate dataSource) {
+		inm = dataSource;
+        //jdbcTemplate = new JdbcTemplate(dataSource);
         System.out.println("Constructor");
     }
 	
 	@Override
 	public List<Research> list() {
-		String sql = "SELECT * FROM nserc.award";
-		List<Research> researchList = jdbcTemplate.query(sql, new RowMapper<Research>() {
-			@Override
-			public Research mapRow(ResultSet rs, int rowNum) throws SQLException {
-	            Research aResearch = new Research();
-	            
-	    		aResearch.title = rs.getString("title");
-				aResearch.cYear = rs.getInt("cYear");
-				aResearch.fYear = rs.getInt("fYear");
-				aResearch.name = rs.getString("name");
-				aResearch.institution = rs.getString("institution");
-				aResearch.department = rs.getString("department");
-				aResearch.province = rs.getString("province");
-				aResearch.amount = rs.getInt("amount");
-				aResearch.installment = rs.getString("installment");
-				aResearch.program = rs.getString("program");
-				aResearch.committee = rs.getString("committee");
-				aResearch.subject = rs.getString("subject");
-				aResearch.AOA = rs.getString("AOA");
-				aResearch.coresearchers = rs.getString("coresearchers");
-				aResearch.partners = rs.getString("partners");
-				aResearch.summary = rs.getString("summary");
-				
-	            return aResearch;
-	        }
-		});
-		System.out.println(researchList.size());
-		System.out.println("Hey, yo!!!!!!!");
+		String sql = "query Award $x construct $x[] top(21,10);";
+		ResultSet res = inm.executeQuery(sql);
+		List<Research> researchList = new ArrayList<Research>();
+		System.out.println(res.getInstance(1).getSonValue("title"));
+		System.out.println(res.valueSize());
+		//while(res.next()) {
+			for(int i=0;i<res.valueSize();i++) {
+				Instance inst = res.getInstance(i);
+				Research aResearch = new Research();
+				aResearch.title = inst.getSonValue("title");
+				aResearch.cYear = inst.getSonIntegerValue("competitionYear");
+				aResearch.fYear = inst.getSonValue("fiscalYear");
+				aResearch.name = inst.getSonValue("leadName");
+				aResearch.institution = inst.getSonValue("institution");
+				aResearch.department = inst.getSonValue("department");
+				aResearch.province = inst.getSonValue("province");
+				aResearch.amount = inst.getSonIntegerValue("amount");
+				aResearch.installment = inst.getSonValue("installment");
+				aResearch.program = inst.getSonValue("program");
+				aResearch.committee = inst.getSonValue("committee");
+				aResearch.subject = inst.getSonValue("subject");
+				aResearch.AOA = inst.getSonValue("areaOfApplication");
+				aResearch.coresearchers = inst.getSonValue("coresearchers");
+				aResearch.partners = inst.getSonValue("partners");
+				aResearch.summary = inst.getSonValue("summary");
+				researchList.add(aResearch);
+				//System.out.println("Hey, yo!!!!!!!");
+			}
+		//}
+		//System.out.println("Hey, yo!!!!!!!");
 		return researchList;
 	}
 	
 	@Override
 	public Research get(String title) {
-		String sql = "SELECT * FROM nserc.award WHERE title=" + title;
-	    return jdbcTemplate.query(sql, new ResultSetExtractor<Research>() {
+		//String sql = "SELECT * FROM nserc.award WHERE title=" + title;
+	    //return jdbcTemplate.query(sql, new ResultSetExtractor<Research>() {
 	 
-	        @Override
-	        public Research extractData(ResultSet rs) throws SQLException,
-	                DataAccessException {
-	            if (rs.next()) {
-	                Research contact = new Research(rs.getString("title"),
-				rs.getInt("cYear"),
-				rs.getInt("fYear"),
-				rs.getString("name"),
-				rs.getString("institution"),
-				rs.getString("department"),
-				rs.getString("province"),
-				rs.getInt("amount"),
-				rs.getString("installment"),
-				rs.getString("program"),
-				rs.getString("committee"),
-				rs.getString("subject"),
-				rs.getString("AOA"),
-				rs.getString("coresearchers"),
-				rs.getString("partners"),
-				rs.getString("summary"));
-	                return contact;
-	            }
-	 
-	            return null;
-	        }
-	 
-	    });
+	    //    @Override
+	    //    public Research extractData(ResultSet rs) throws SQLException,
+	    //            DataAccessException {
+	    //        if (rs.next()) {
+	    //            Research contact = new Research(rs.getString("title"),
+		//		rs.getInt("cYear"),
+		//		rs.getString("fYear"),
+		//		rs.getString("name"),
+		//		rs.getString("institution"),
+		//		rs.getString("department"),
+		//		rs.getString("province"),
+		//		rs.getInt("amount"),
+		//		rs.getS//tring("installment"),
+		//		rs.getString("program"),
+		//		rs.getString("committee"),
+		//		rs.getString("subject"),
+		//		rs.getString("AOA"),
+		//		rs.getString("coresearchers"),
+		//		rs.getString("partners"),
+		//		rs.getString("summary"));
+	    //            return contact;
+	    //        }
+	 //
+	    //        return null;
+	    //    }
+	 //
+	    //});
+	//}
+	return null;
 	}
-	
 }

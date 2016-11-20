@@ -18,6 +18,8 @@
         <servlet-name>nserc</servlet-name>
         <url-pattern>/welcome.jsp</url-pattern>
         <url-pattern>/welcome.html</url-pattern>
+        <url-pattern>/about.jsp</url-pattern>
+        <url-pattern>/about.html</url-pattern>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 </web-app>

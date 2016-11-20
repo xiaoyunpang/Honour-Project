@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,11 +18,18 @@ public class nsercAward {
 	public ModelAndView listResearches(ModelAndView model){
 		System.out.println("Hey, mapping!!!!!!!!!!");
 	    List<Research> listResearches = researchDAO.list();
-	    System.out.println(listResearches.get(1).title);
+	    //System.out.println(listResearches.get(0).title);
 	    model.addObject("listResearches", listResearches);
 	    model.setViewName("welcome");
 	    //System.out.println(model.);
 	 
+	    return model;
+	}
+	
+	
+	@RequestMapping("/about")
+	public ModelAndView about(ModelAndView model){
+		model.setViewName("about");
 	    return model;
 	}
 

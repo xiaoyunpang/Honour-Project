@@ -44,7 +44,7 @@
     co-researchers 13
     partners 14
     summary 15}]
-  (str "insert Award \"" table-name
+  (str "insert Award \"" (str table-name (java.util.UUID/randomUUID))
        "\"[@title: \"" (polish-text title) "\", "
        "@competitionYear: " c-year ", "
        "@fiscalYear: \"" f-year "\", "

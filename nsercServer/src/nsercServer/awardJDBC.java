@@ -1,5 +1,4 @@
 package nsercServer;
-import javax.sql.DataSource;
 
 import nsercServer.ResearchDAO;
 import nsercServer.ResearchDAOImpl;
@@ -7,12 +6,14 @@ import nsercServer.ResearchDAOImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+//import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import inm.client.InmTemplate;
+import inm.client.InmTemplateFactory;
 
 @Configuration
 @ComponentScan(basePackages="nsercServer")
@@ -32,15 +33,17 @@ public class awardJDBC extends WebMvcConfigurerAdapter {
     }
  
     @Bean
-    public DataSource getDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/nserc");
-        dataSource.setUsername("root");
-        dataSource.setPassword("921113");
+    public InmTemplate getDataSource() {
+    	InmTemplateFactory.buildTemplate("rose.whu.edu.cn", 3008);
+    	InmTemplate inm = InmTemplateFactory.getInitializedTemplate();
+        //DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        //dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        //dataSource.setUrl("jdbc:mysql://localhost:3306/nserc");
+        //dataSource.setUsername("root");
+        //dataSource.setPassword("921113");
         System.out.println("Success!!!!!!!!!!!!");
          
-        return dataSource;
+        return inm;
     }
      
     @Bean
