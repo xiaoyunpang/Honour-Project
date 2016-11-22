@@ -4,7 +4,13 @@ import nsercServer.Research;
 
 public interface ResearchDAO {
 	public List<Research> list();
+	public List<Research> next(int ind);
+	public List<Research> prev(int ind);
+	public List<Research> yearList();
+	public List<Research> yearSearchList(int year);
 	
-	public Research get(String title);
+	
+	public int getPage();
+	public void resetPage();
 
 }

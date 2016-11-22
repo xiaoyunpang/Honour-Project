@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -28,45 +25,66 @@
     	</div>
   	</header>
 
-	
-	
 	<section class="jumbotron" style="padding:50px;height:500px;background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 		<ul class="nav nav-tabs" style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
-			<li class="active"><a name="individuals" href="/nsercServer" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Introduction</a></li>
+			<li><a name="individuals" href="/nsercServer" data-toggle="tab">Introduction</a></li>
 			<li><a href="welcome.html" data-toggle="tab">Detailed List</a></li>
-			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
+			<li class="active"><a href="year.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Competition Year</a></li>
 			<li><a href="/nsercServer" data-toggle="tab">Competition Year</a></li>
 		</ul>
 
 		<table border="1">
                 <th>No</th>
-                <th>Title</th>
                 <th>Competition Year</th>
+                <th>Title</th>
                 <th>Fiscal Year</th>
                 <th>Name</th>
                 <th>Institution</th>
                 <th>Department</th>
                 <th>Province</th>
                 <th>Amount($)</th>
+                <th>Program</th>
+                <th>Committee</th>
+                <th>Subject</th>
+
+                <tr>
+                    <td></td>
+                    <td><form action="yearS.html" method="POST"><input type="text" name="cyear"><input type="submit" value="Search" /></form></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
                  
                 <c:forEach var="research" items="${listResearches}" varStatus="status">
                 <tr>
                     <td>${status.index + 1}</td>
-                    <td>${research.title}</td>
                     <td>${research.cYear}</td>
+                    <td>${research.title}</td>
                     <td>${research.fYear}</td>
                     <td>${research.name}</td>
                     <td>${research.institution}</td>
                     <td>${research.department}</td>
                     <td>${research.province}</td>
                     <td>${research.amount}</td>
+                    <td>${research.program}</td>
+                    <td>${research.committee}</td>
+                    <td>${research.subject}</td>
                              
                 </tr>
                 </c:forEach>             
             </table>
-		<h3>
-			
-		</h3>
+		<div style="display:inline-block;float:right;position:relative;right:50%;">
+			<a href="yearP.html" style="display:inline-block;">Previous</a>
+			<p style="display:inline-block;">${pageNum}</p>
+			<a href="yearN.html" style="display:inline-block;">Next</a>
+		</div>
 	</section>
 </body>
 </html>

@@ -17,9 +17,9 @@ public class HomeController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView listResearches(ModelAndView model) throws IOException{
 		System.out.println("Hey, mapping!!!!!!!!!!");
-	    List<Research> listResearches = researchDAO.list();
-	    model.addObject("listResearches", listResearches);
-	    model.setViewName("index");
+	    //List<Research> listResearches = researchDAO.list();
+	    //model.addObject("listResearches", listResearches);
+	    //model.setViewName("index");
 	 
 	    return model;
 	}

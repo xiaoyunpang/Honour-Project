@@ -27,9 +27,9 @@
 
 	<section class="jumbotron" style="padding:50px;height:500px;background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 		<ul class="nav nav-tabs" style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
-			<li><a name="individuals" href="/nsercServer" data-toggle="tab">List of Awards</a></li>
-			<li class="active"><a href="welcome.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Competition Year</a></li>
-			<li><a href="/nsercServer" data-toggle="tab">University</a></li>
+			<li><a name="individuals" href="/nsercServer" data-toggle="tab">Introduction</a></li>
+			<li class="active"><a href="welcome.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Detailed List</a></li>
+			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
 			<li><a href="/nsercServer" data-toggle="tab">Competition Year</a></li>
 		</ul>
 
@@ -42,7 +42,10 @@
                 <th>Institution</th>
                 <th>Department</th>
                 <th>Province</th>
-                <th>Amount</th>
+                <th>Amount($)</th>
+                <th>Program</th>
+                <th>Committee</th>
+                <th>Subject</th>
                  
                 <c:forEach var="research" items="${listResearches}" varStatus="status">
                 <tr>
@@ -55,15 +58,17 @@
                     <td>${research.department}</td>
                     <td>${research.province}</td>
                     <td>${research.amount}</td>
+                    <td>${research.program}</td>
+                    <td>${research.committee}</td>
+                    <td>${research.subject}</td>
                              
                 </tr>
                 </c:forEach>             
             </table>
-		<div>
-			<ul class="col-sm-4">
-			<li><a href="/welcome/2">Next</a></li>
-
-			</ul>
+		<div style="display:inline-block;float:right;position:relative;right:50%;">
+			<a href="welcomeP.html" style="display:inline-block;">Previous</a>
+			<p style="display:inline-block;">${pageNum}</p>
+			<a href="welcomeN.html" style="display:inline-block;">Next</a>
 		</div>
 	</section>
 </body>

@@ -18,8 +18,14 @@
         <servlet-name>nserc</servlet-name>
         <url-pattern>/welcome.jsp</url-pattern>
         <url-pattern>/welcome.html</url-pattern>
+        <url-pattern>/welcomeP.html</url-pattern>
+        <url-pattern>/welcomeN.html</url-pattern>
         <url-pattern>/about.jsp</url-pattern>
         <url-pattern>/about.html</url-pattern>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>/year.jsp</url-pattern>
+        <url-pattern>/year.html</url-pattern>
+        <url-pattern>/yearP.html</url-pattern>
+        <url-pattern>/yearN.html</url-pattern>
+        <url-pattern>/yearS.html</url-pattern>
     </servlet-mapping>
 </web-app>
