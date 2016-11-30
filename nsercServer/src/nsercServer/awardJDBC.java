@@ -36,20 +36,18 @@ public class awardJDBC extends WebMvcConfigurerAdapter {
     public InmTemplate getDataSource() {
     	InmTemplateFactory.buildTemplate("rose.whu.edu.cn", 3008);
     	InmTemplate inm = InmTemplateFactory.getInitializedTemplate();
-        //DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        //dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        //dataSource.setUrl("jdbc:mysql://localhost:3306/nserc");
-        //dataSource.setUsername("root");
-        //dataSource.setPassword("921113");
-        System.out.println("Success!!!!!!!!!!!!");
+        System.out.println("Success!");
          
         return inm;
     }
      
     @Bean
     public ResearchDAO getResearchDAO() {
-    	System.out.println("I'm here!!!");
         return new ResearchDAOImpl(getDataSource());
     }
 
+    @Bean
+    public InstitutionDAO getInstitutionDAO() {
+        return new InstitutionDAOImpl(getDataSource());
+    }
 }

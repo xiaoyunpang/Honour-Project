@@ -10,10 +10,12 @@ public class ResearchDAOImpl implements ResearchDAO{
 	private InmTemplate inm;
 	private int page;
 	private int Cyear;
+	private String inputTitle;
 	
 	public ResearchDAOImpl(InmTemplate dataSource) {
 		page = 1;
 		Cyear = -1;
+		inputTitle = "";
 		inm = dataSource;
     }
 	
@@ -43,6 +45,42 @@ public class ResearchDAOImpl implements ResearchDAO{
 				aResearch.summary = inst.getSonValue("summary");
 				researchList.add(aResearch);
 			}
+		return researchList;
+	}
+	
+	@Override
+	public List<Research> titleSearchList(String title) {
+		inputTitle = title.trim();
+		if(inputTitle.equals(""))
+			return list();
+		String sql = "query Award $x/title:$y=%"+title+"% construct $x[] top("+((page-1)*10+1)+",10);";
+		ResultSet res = inm.executeQuery(sql);
+		List<Research> researchList = new ArrayList<Research>();
+		if(res.hasNext()){
+			if(res.valueSize()<10)
+				page--;
+			for(int i=0;i<res.valueSize();i++) {
+				Instance inst = res.getInstance(i);
+				Research aResearch = new Research();
+				aResearch.title = inst.getSonValue("title");
+				aResearch.cYear = inst.getSonIntegerValue("competitionYear");
+				aResearch.fYear = inst.getSonValue("fiscalYear");
+				aResearch.name = inst.getSonValue("leadName");
+				aResearch.institution = inst.getSonValue("institution");
+				aResearch.department = inst.getSonValue("department");
+				aResearch.province = inst.getSonValue("province");
+				aResearch.amount = inst.getSonIntegerValue("amount");
+				aResearch.installment = inst.getSonValue("installment");
+				aResearch.program = inst.getSonValue("program");
+				aResearch.committee = inst.getSonValue("committee");
+				aResearch.subject = inst.getSonValue("subject");
+				aResearch.AOA = inst.getSonValue("areaOfApplication");
+				aResearch.coresearchers = inst.getSonValue("coresearchers");
+				aResearch.partners = inst.getSonValue("partners");
+				aResearch.summary = inst.getSonValue("summary");
+				researchList.add(aResearch);
+				}
+		}
 		return researchList;
 	}
 	
@@ -119,6 +157,8 @@ public class ResearchDAOImpl implements ResearchDAO{
 				return yearSearchList(Cyear);
 			return yearList();
 		}
+		if(!inputTitle.equals(""))
+			return titleSearchList(inputTitle);
 		return list();
 	}
 	
@@ -132,13 +172,19 @@ public class ResearchDAOImpl implements ResearchDAO{
 				return yearSearchList(Cyear);
 			return yearList();
 		}
+		if(!inputTitle.equals(""))
+			return titleSearchList(inputTitle);
 		return list();
 	}
 	
 	@Override
-	public int getPage(){ return page; }
+	public int getPage(){
+		if(page < 1)
+			return 1;
+		return page;
+		}
 	
 	@Override
-	public void resetPage(){ page = 1; Cyear = -1;}
+	public void resetPage(){ page = 1; Cyear = -1; inputTitle = "";}
 	
 }

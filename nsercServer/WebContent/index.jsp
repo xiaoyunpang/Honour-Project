@@ -35,38 +35,19 @@
 			<li class="active"><a name="individuals" href="/nsercServer" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Introduction</a></li>
 			<li><a href="welcome.html" data-toggle="tab">Detailed List</a></li>
 			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
-			<li><a href="/nsercServer" data-toggle="tab">Competition Year</a></li>
+			<li><a href="institution.html" data-toggle="tab">Institution</a></li>
 		</ul>
 
-		<table border="1">
-                <th>No</th>
-                <th>Title</th>
-                <th>Competition Year</th>
-                <th>Fiscal Year</th>
-                <th>Name</th>
-                <th>Institution</th>
-                <th>Department</th>
-                <th>Province</th>
-                <th>Amount($)</th>
-                 
-                <c:forEach var="research" items="${listResearches}" varStatus="status">
-                <tr>
-                    <td>${status.index + 1}</td>
-                    <td>${research.title}</td>
-                    <td>${research.cYear}</td>
-                    <td>${research.fYear}</td>
-                    <td>${research.name}</td>
-                    <td>${research.institution}</td>
-                    <td>${research.department}</td>
-                    <td>${research.province}</td>
-                    <td>${research.amount}</td>
-                             
-                </tr>
-                </c:forEach>             
-            </table>
-		<h3>
-			
-		</h3>
+		<div>
+            <ul style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
+                <li><a href="welcome.html">Detailed List</a>
+                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list and allows you to search for a title by keywords. </p></li>
+                <li><a href="year.html">Competition Year</a>
+                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list by competition year and allows you to search for a specific year. </p></li>
+                <li><a href="institution.html">Institution</a>
+                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list by institution and provides a summary of all institutions. </p></li>
+            </ul>
+        </div>
 	</section>
 </body>
 </html>

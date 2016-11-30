@@ -1,6 +1,5 @@
 package nsercServer;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +11,43 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 	
 	@Autowired
-	private ResearchDAO researchDAO;
+	private InstitutionDAO institutionDAO;
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ModelAndView listResearches(ModelAndView model) throws IOException{
-		System.out.println("Hey, mapping!!!!!!!!!!");
-	    //List<Research> listResearches = researchDAO.list();
-	    //model.addObject("listResearches", listResearches);
-	    //model.setViewName("index");
-	 
+	@RequestMapping(value="/summary", method = RequestMethod.GET)
+	public ModelAndView listSummary(ModelAndView model){
+		institutionDAO.resetPage();
+	    List<Institution> listResearches = institutionDAO.list();
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", institutionDAO.getPage());
+	    model.setViewName("summary");
+	    return model;
+	}
+	
+	@RequestMapping(value="/summaryN", method = RequestMethod.GET)
+	public ModelAndView nextListSummary(ModelAndView model){
+	    List<Institution> listResearches = institutionDAO.next();
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", institutionDAO.getPage());
+	    model.setViewName("summary");
+	    return model;
+	}
+	
+	@RequestMapping(value="/summaryP", method = RequestMethod.GET)
+	public ModelAndView prevListSummary(ModelAndView model){
+	    List<Institution> listResearches = institutionDAO.prev();
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", institutionDAO.getPage());
+	    model.setViewName("summary");
+	    return model;
+	}
+	
+	@RequestMapping(value="/summaryO", method = RequestMethod.GET)
+	public ModelAndView orderListSummary(ModelAndView model){
+		institutionDAO.resetPageOnly();
+	    List<Institution> listResearches = institutionDAO.reverseList();
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", institutionDAO.getPage());
+	    model.setViewName("summary");
 	    return model;
 	}
 

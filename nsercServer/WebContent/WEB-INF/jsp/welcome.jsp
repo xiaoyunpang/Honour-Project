@@ -30,7 +30,7 @@
 			<li><a name="individuals" href="/nsercServer" data-toggle="tab">Introduction</a></li>
 			<li class="active"><a href="welcome.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Detailed List</a></li>
 			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
-			<li><a href="/nsercServer" data-toggle="tab">Competition Year</a></li>
+			<li><a href="institution.html" data-toggle="tab">Institution</a></li>
 		</ul>
 
 		<table border="1">
@@ -46,6 +46,21 @@
                 <th>Program</th>
                 <th>Committee</th>
                 <th>Subject</th>
+
+                <tr>
+                    <td></td>
+                    <td><form action="welcomeS.html" method="POST"><input type="text" name="title"><input type="submit" value="Search" /></form></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
                  
                 <c:forEach var="research" items="${listResearches}" varStatus="status">
                 <tr>

@@ -29,17 +29,17 @@
 		<ul class="nav nav-tabs" style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 			<li><a name="individuals" href="/nsercServer" data-toggle="tab">Introduction</a></li>
 			<li><a href="welcome.html" data-toggle="tab">Detailed List</a></li>
-			<li class="active"><a href="year.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Competition Year</a></li>
-			<li><a href="institution.html" data-toggle="tab">Institution</a></li>
+			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
+			<li class="active"><a href="institution.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Institution</a></li>
 		</ul>
 
 		<table border="1">
                 <th>No</th>
-                <th>Competition Year</th>
+                <th>Institution</th>
                 <th>Title</th>
+                <th>Competition Year</th>
                 <th>Fiscal Year</th>
                 <th>Name</th>
-                <th>Institution</th>
                 <th>Department</th>
                 <th>Province</th>
                 <th>Amount($)</th>
@@ -48,28 +48,17 @@
                 <th>Subject</th>
 
                 <tr>
-                    <td></td>
-                    <td><form action="yearS.html" method="POST"><input type="text" name="cyear"><input type="submit" value="Search" /></form></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <a href="summary.html" style="font-size:30px;">Summary</a>
                 </tr>
                  
                 <c:forEach var="research" items="${listResearches}" varStatus="status">
                 <tr>
                     <td>${status.index + 1}</td>
-                    <td>${research.cYear}</td>
+                    <td>${research.institution}</td>
                     <td>${research.title}</td>
+                    <td>${research.cYear}</td>
                     <td>${research.fYear}</td>
                     <td>${research.name}</td>
-                    <td>${research.institution}</td>
                     <td>${research.department}</td>
                     <td>${research.province}</td>
                     <td>${research.amount}</td>
@@ -81,9 +70,9 @@
                 </c:forEach>             
             </table>
 		<div style="display:inline-block;float:right;position:relative;right:50%;">
-			<a href="yearP.html" style="display:inline-block;">Previous</a>
+			<a href="institutionP.html" style="display:inline-block;">Previous</a>
 			<p style="display:inline-block;">${pageNum}</p>
-			<a href="yearN.html" style="display:inline-block;">Next</a>
+			<a href="institutionN.html" style="display:inline-block;">Next</a>
 		</div>
 	</section>
 </body>

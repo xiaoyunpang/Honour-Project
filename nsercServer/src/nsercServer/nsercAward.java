@@ -41,6 +41,16 @@ public class nsercAward {
 	    return model;
 	}
 	
+	@RequestMapping(value="/welcomeS", method = RequestMethod.POST)
+	public ModelAndView titleSearchListResearches(@RequestParam("title") String title,ModelAndView model){
+		researchDAO.resetPage();
+	    List<Research> listResearches = researchDAO.titleSearchList(title);
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", researchDAO.getPage());
+	    model.setViewName("welcome");
+	    return model;
+	}
+	
 	@RequestMapping("/about")
 	public ModelAndView about(ModelAndView model){
 		model.setViewName("about");
@@ -87,6 +97,34 @@ public class nsercAward {
 	    model.addObject("listResearches", listResearches);
 	    model.addObject("pageNum", researchDAO.getPage());
 	    model.setViewName("year");
+	    return model;
+	}
+	
+	@RequestMapping(value="/institution", method = RequestMethod.GET)
+	public ModelAndView institutionListResearches(ModelAndView model){
+		researchDAO.resetPage();
+	    List<Research> listResearches = researchDAO.list();
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", researchDAO.getPage());
+	    model.setViewName("institution");
+	    return model;
+	}
+	
+	@RequestMapping(value="/institutionN", method = RequestMethod.GET)
+	public ModelAndView nextInstitutionListResearches(ModelAndView model){
+	    List<Research> listResearches = researchDAO.next(0);
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", researchDAO.getPage());
+	    model.setViewName("institution");
+	    return model;
+	}
+	
+	@RequestMapping(value="/institutionP", method = RequestMethod.GET)
+	public ModelAndView previousInstitutionListResearches(ModelAndView model){
+	    List<Research> listResearches = researchDAO.prev(0);
+	    model.addObject("listResearches", listResearches);
+	    model.addObject("pageNum", researchDAO.getPage());
+	    model.setViewName("institution");
 	    return model;
 	}
 
