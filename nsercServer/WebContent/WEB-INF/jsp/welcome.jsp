@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 	<title>NSERC's Awards Database</title>
@@ -25,6 +26,7 @@
     	</div>
   	</header>
 
+
 	<section class="jumbotron" style="padding:50px;height:500px;background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 		<ul class="nav nav-tabs" style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 			<li><a name="individuals" href="/nsercServer" data-toggle="tab">Introduction</a></li>
@@ -32,6 +34,56 @@
 			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
 			<li><a href="institution.html" data-toggle="tab">Institution</a></li>
 		</ul>
+
+		<div>
+  		<form action="welcomeS.html" method="POST">
+		<table>
+			<tr>
+				<td>Competition Year:</td>
+				<td><select name="cyear">
+					<option selected>${selectedCyear}</option>
+					<c:forEach var="c" items="${cyearList}">
+                		<option value=${c}>${c}</option>
+                	</c:forEach>
+				    </select>
+                </td>
+
+                <td>Department:</td>
+				<td><select name="lname">
+					<option selected>${selectedLname}</option>
+					<c:forEach var="n" items="${lnameList}">
+                		<option value="${n}">${n}</option>
+                	</c:forEach>
+				    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Province:</td>
+				<td><select name="province">
+					<option selected>${selectedProvince}</option>
+					<c:forEach var="p" items="${provinceList}">
+                		<option value="${p}">${p}</option>
+                	</c:forEach>
+				    </select>
+                </td>
+
+                <td>Institution:</td>
+				<td><select name="institution">
+					<option selected>${selectedInstitution}</option>
+					<c:forEach var="i" items="${institutionList}">
+                		<option value="${i}">${i}</option>
+                	</c:forEach>
+				    </select>
+                </td>
+			</tr>
+			
+			<tr>
+				<td colspan="3"><input type="submit" value="Search"/></td>
+			</tr>
+		</table>
+		</form>
+  	</div>
 
 		<table border="1">
                 <th>No</th>
@@ -46,21 +98,6 @@
                 <th>Program</th>
                 <th>Committee</th>
                 <th>Subject</th>
-
-                <tr>
-                    <td></td>
-                    <td><form action="welcomeS.html" method="POST"><input type="text" name="title"><input type="submit" value="Search" /></form></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
                  
                 <c:forEach var="research" items="${listResearches}" varStatus="status">
                 <tr>
