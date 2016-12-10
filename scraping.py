@@ -8,13 +8,13 @@ import sys
 from socket import error as SocketError
 import errno
 
-def parse_contents(html):
-	return filter(lambda x: not(x.strip() == ''), html.encode('ascii','ignore').replace('\t', '').splitlines())
-
 writer = csv.writer(open('data/award-datails.csv', 'w'))
 writer.writerow(['Research Title', 'Competition Year', 'Fiscal Year', 'Project Lead Name', 'Institution',
 				 'Department', 'Province', 'Award Amount', 'Installment', 'Program', 'Selection Committee',
 				 'Research Subject', 'Area of Application', 'Co-Researchers', 'Partners', 'Award Summary'])
+
+def parse_contents(html):
+	return filter(lambda x: not(x.strip() == ''), html.encode('ascii','ignore').replace('\t', '').splitlines())
 
 def scrape_html(link, num):
 	html = urlopen(link)
