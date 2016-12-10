@@ -1,22 +1,22 @@
 package nsercServer;
 
 public class Research {
-	public String title;
-	public int cYear;
-	public String fYear;
-	public String name;
-	public String institution;
-	public String department;
-	public String province;
-	public int amount;
-	public String installment;
-	public String program;
-	public String committee;
-	public String subject;
-	public String AOA;
-	public String coresearchers;
-	public String partners;
-	public String summary;
+	private String title;
+	private int cYear;
+	private String fYear;
+	private String name;
+	private String institution;
+	private String department;
+	private String province;
+	private int amount;
+	private String installment;
+	private String program;
+	private String committee;
+	private String subject;
+	private String AOA;
+	private String coresearchers;
+	private String partners;
+	private String summary;
 	
 	public Research() {
 		
@@ -62,5 +62,22 @@ public class Research {
 	public String getCoresearchers() { return this.coresearchers; }
 	public String getPartners() { return this.partners; }
 	public String getSummary() { return this.summary; }
+	
+	public void setTitle(String t) { this.title = t; }
+	public void setcYear(int y) { this.cYear = y; }
+	public void setfYear(String y) { this.fYear = y; }
+	public void setName(String n) { this.name = n; }
+	public void setInstitution(String i) { this.institution = i; }
+	public void setDepartment(String d) { this.department = d; }
+	public void setProvince(String p) { this.province = p; }
+	public void setamount(int a) { this.amount = a; }
+	public void setInstallment(String i) { this.installment = i; }
+	public void setProgram(String p) { this.program = p; }
+	public void setCommittee(String c) { this.committee = c; }
+	public void setSubject(String s) { this.subject = s; }
+	public void setAOA(String a) { this.AOA = a; }
+	public void setCoresearchers(String c) { this.coresearchers = c; }
+	public void setPartners(String p) { this.partners = p; }
+	public void setSummary(String s) { this.summary = s; }
 
 }

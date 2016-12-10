@@ -23,19 +23,5 @@
         <url-pattern>/welcomeS.html</url-pattern>
         <url-pattern>/about.jsp</url-pattern>
         <url-pattern>/about.html</url-pattern>
-        <url-pattern>/year.jsp</url-pattern>
-        <url-pattern>/year.html</url-pattern>
-        <url-pattern>/yearP.html</url-pattern>
-        <url-pattern>/yearN.html</url-pattern>
-        <url-pattern>/yearS.html</url-pattern>
-        <url-pattern>/institution.jsp</url-pattern>
-        <url-pattern>/institution.html</url-pattern>
-        <url-pattern>/institutionP.html</url-pattern>
-        <url-pattern>/institutionN.html</url-pattern>
-        <url-pattern>/summary.jsp</url-pattern>
-        <url-pattern>/summary.html</url-pattern>
-        <url-pattern>/summaryP.html</url-pattern>
-        <url-pattern>/summaryN.html</url-pattern>
-        <url-pattern>/summaryO.html</url-pattern>
     </servlet-mapping>
 </web-app>

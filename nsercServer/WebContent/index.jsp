@@ -34,18 +34,12 @@
 		<ul class="nav nav-tabs" style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 			<li class="active"><a name="individuals" href="/nsercServer" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Introduction</a></li>
 			<li><a href="welcome.html" data-toggle="tab">Detailed List</a></li>
-			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
-			<li><a href="institution.html" data-toggle="tab">Institution</a></li>
 		</ul>
 
 		<div>
             <ul style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
                 <li><a href="welcome.html">Detailed List</a>
-                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list and allows you to search for a title by keywords. </p></li>
-                <li><a href="year.html">Competition Year</a>
-                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list by competition year and allows you to search for a specific year. </p></li>
-                <li><a href="institution.html">Institution</a>
-                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list by institution and provides a summary of all institutions. </p></li>
+                <p style="font-family: 'Times New Roman', Georgia, Serif;font-size: 15px;"> - displays a full detailed list and allows you to search further by selecting various criteria. </p></li>
             </ul>
         </div>
 	</section>

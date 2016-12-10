@@ -11,7 +11,6 @@ public class ResearchDAOImpl implements ResearchDAO{
 	private InmTemplate inm;
 	private int page;
 	private int currentPageSize;
-	private int Cyear;
 	
 	private int cYear;
 	private String leadname;
@@ -27,7 +26,6 @@ public class ResearchDAOImpl implements ResearchDAO{
 	public ResearchDAOImpl(InmTemplate dataSource) {
 		page = 1;
 		currentPageSize = 0;
-		Cyear = -1;
 		
 		cYear = -1;
 		leadname = "";
@@ -49,39 +47,33 @@ public class ResearchDAOImpl implements ResearchDAO{
 		if(!province.equals("")) { p = "$x/province:$p=\""+province+"\","; }
 		if(!institution.equals("")) { in = "$x/institution:$i=\""+institution+"\","; }	
 		String iql = "query Award $x("+((page-1)*10+1)+",10) construct $x[];";
-		//String countIql = "query Award $x construct count({$x});";
 		if(!((c+n+p+in).equals(""))) {
 			fi = (c+n+p+in).substring(0, (c+n+p+in).length()-1);
 			iql = "query Award "+fi+" construct $x[] top("+((page-1)*10+1)+",10);";
-			//countIql = "query Award "+fi+" construct count({$x});";
 		}
-		//System.out.println(iql);
-		//String sql = "query Award $x("+((page-1)*10+1)+", 10) construct $x[];";
 		ResultSet res = inm.executeQuery(iql);
-		//ResultSet countRes = inm.executeQuery(countIql);
-		//System.out.println(countRes.valueSize());
 		List<Research> researchList = new ArrayList<Research>();
 		if(res.variableSize()>0&&res.valueSize()>0) {
 			currentPageSize = res.valueSize();
 			for(int i=0;i<res.valueSize();i++) {
 				Instance inst = res.getInstance(i);
 				Research aResearch = new Research();
-				aResearch.title = inst.getSonValue("title");
-				aResearch.cYear = inst.getSonIntegerValue("competitionYear");
-				aResearch.fYear = inst.getSonValue("fiscalYear");
-				aResearch.name = inst.getSonValue("leadName");
-				aResearch.institution = inst.getSonValue("institution");
-				aResearch.department = inst.getSonValue("department");
-				aResearch.province = inst.getSonValue("province");
-				aResearch.amount = inst.getSonIntegerValue("amount");
-				aResearch.installment = inst.getSonValue("installment");
-				aResearch.program = inst.getSonValue("program");
-				aResearch.committee = inst.getSonValue("committee");
-				aResearch.subject = inst.getSonValue("subject");
-				aResearch.AOA = inst.getSonValue("areaOfApplication");
-				aResearch.coresearchers = inst.getSonValue("coresearchers");
-				aResearch.partners = inst.getSonValue("partners");
-				aResearch.summary = inst.getSonValue("summary");
+				aResearch.setTitle(inst.getSonValue("title"));
+				aResearch.setcYear(inst.getSonIntegerValue("competitionYear"));
+				aResearch.setfYear(inst.getSonValue("fiscalYear"));
+				aResearch.setName(inst.getSonValue("leadName"));
+				aResearch.setInstitution(inst.getSonValue("institution"));
+				aResearch.setDepartment(inst.getSonValue("department"));
+				aResearch.setProvince(inst.getSonValue("province"));
+				aResearch.setamount(inst.getSonIntegerValue("amount"));
+				aResearch.setInstallment(inst.getSonValue("installment"));
+				aResearch.setProgram(inst.getSonValue("program"));
+				aResearch.setCommittee(inst.getSonValue("committee"));
+				aResearch.setSubject(inst.getSonValue("subject"));
+				aResearch.setAOA(inst.getSonValue("areaOfApplication"));
+				aResearch.setCoresearchers(inst.getSonValue("coresearchers"));
+				aResearch.setPartners(inst.getSonValue("partners"));
+				aResearch.setSummary(inst.getSonValue("summary"));
 				researchList.add(aResearch);
 			}
 		}
@@ -89,93 +81,20 @@ public class ResearchDAOImpl implements ResearchDAO{
 	}
 	
 	@Override
-	public List<Research> yearList() {
-		String sql = "query Award $x("+((page-1)*10+1)+", 10) construct $x[];";
-		ResultSet res = inm.executeQuery(sql);
-		List<Research> researchList = new ArrayList<Research>();
-			for(int i=0;i<res.valueSize();i++) {
-				Instance inst = res.getInstance(i);
-				Research aResearch = new Research();
-				aResearch.title = inst.getSonValue("title");
-				aResearch.cYear = inst.getSonIntegerValue("competitionYear");
-				aResearch.fYear = inst.getSonValue("fiscalYear");
-				aResearch.name = inst.getSonValue("leadName");
-				aResearch.institution = inst.getSonValue("institution");
-				aResearch.department = inst.getSonValue("department");
-				aResearch.province = inst.getSonValue("province");
-				aResearch.amount = inst.getSonIntegerValue("amount");
-				aResearch.installment = inst.getSonValue("installment");
-				aResearch.program = inst.getSonValue("program");
-				aResearch.committee = inst.getSonValue("committee");
-				aResearch.subject = inst.getSonValue("subject");
-				aResearch.AOA = inst.getSonValue("areaOfApplication");
-				aResearch.coresearchers = inst.getSonValue("coresearchers");
-				aResearch.partners = inst.getSonValue("partners");
-				aResearch.summary = inst.getSonValue("summary");
-				researchList.add(aResearch);
-			}
-		return researchList;
-	}
-	
-	@Override
-	public List<Research> yearSearchList(int year) {
-		Cyear = year;
-		String sql = "query Award $x/competitionYear:$y="+year+" construct $x[] top("+((page-1)*10+1)+",10);";
-		ResultSet res = inm.executeQuery(sql);
-		List<Research> researchList = new ArrayList<Research>();
-		if(res.variableSize()>0&&res.valueSize()>0){
-			if(res.valueSize()<10)
-				page--;
-			for(int i=0;i<res.valueSize();i++) {
-				Instance inst = res.getInstance(i);
-				Research aResearch = new Research();
-				aResearch.title = inst.getSonValue("title");
-				aResearch.cYear = inst.getSonIntegerValue("competitionYear");
-				aResearch.fYear = inst.getSonValue("fiscalYear");
-				aResearch.name = inst.getSonValue("leadName");
-				aResearch.institution = inst.getSonValue("institution");
-				aResearch.department = inst.getSonValue("department");
-				aResearch.province = inst.getSonValue("province");
-				aResearch.amount = inst.getSonIntegerValue("amount");
-				aResearch.installment = inst.getSonValue("installment");
-				aResearch.program = inst.getSonValue("program");
-				aResearch.committee = inst.getSonValue("committee");
-				aResearch.subject = inst.getSonValue("subject");
-				aResearch.AOA = inst.getSonValue("areaOfApplication");
-				aResearch.coresearchers = inst.getSonValue("coresearchers");
-				aResearch.partners = inst.getSonValue("partners");
-				aResearch.summary = inst.getSonValue("summary");
-				researchList.add(aResearch);
-				}
-		}
-		return researchList;
-	}
-	
-	@Override
-	public List<Research> next(int ind) {
+	public List<Research> next() {
 		if(this.currentPageSize != 10)
 			return list();
 		page++;
 		if (page > 50578)
 			page = 50578;
-		if(ind == 1){
-			if(Cyear > -1)
-				return yearSearchList(Cyear);
-			return yearList();
-		}
 		return list();
 	}
 	
 	@Override
-	public List<Research> prev(int ind) {
+	public List<Research> prev() {
 		page--;
 		if (page < 1) 
 			page = 1;
-		if(ind == 1) {
-			if(Cyear > -1)
-				return yearSearchList(Cyear);
-			return yearList();
-		}
 		return list();
 	}
 	
@@ -207,7 +126,7 @@ public class ResearchDAOImpl implements ResearchDAO{
 	@Override
 	public void setPage(int p){ page = p;}
 	@Override
-	public void resetPage(){ page = 1; currentPageSize = 0; Cyear = -1; cYear = -1;
+	public void resetPage(){ page = 1; currentPageSize = 0; cYear = -1;
 	leadname = "";
 	province = "";
 	institution = "";

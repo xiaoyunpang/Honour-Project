@@ -31,8 +31,6 @@
 		<ul class="nav nav-tabs" style="background-image:url('http://www.planwallpaper.com/static/images/Background.jpg');">
 			<li><a name="individuals" href="/nsercServer" data-toggle="tab">Introduction</a></li>
 			<li class="active"><a href="welcome.html" data-toggle="tab" style="background-color:#F6F654;opacity:0.6;">Detailed List</a></li>
-			<li><a href="year.html" data-toggle="tab">Competition Year</a></li>
-			<li><a href="institution.html" data-toggle="tab">Institution</a></li>
 		</ul>
 
 		<div>

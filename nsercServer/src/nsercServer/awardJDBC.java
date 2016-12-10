@@ -45,9 +45,4 @@ public class awardJDBC extends WebMvcConfigurerAdapter {
     public ResearchDAO getResearchDAO() {
         return new ResearchDAOImpl(getDataSource());
     }
-
-    @Bean
-    public InstitutionDAO getInstitutionDAO() {
-        return new InstitutionDAOImpl(getDataSource());
-    }
 }

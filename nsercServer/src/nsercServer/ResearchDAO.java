@@ -1,16 +1,11 @@
 package nsercServer;
 import java.util.List;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
 import nsercServer.Research;
 
 public interface ResearchDAO {
 	public List<Research> list();
-	public List<Research> next(int ind);
-	public List<Research> prev(int ind);
-	public List<Research> yearList();
-	public List<Research> yearSearchList(int year);
+	public List<Research> next();
+	public List<Research> prev();
 	
 	public List<Integer> getCyearList();
 	public List<String> getLnameList();

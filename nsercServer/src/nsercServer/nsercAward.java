@@ -1,5 +1,4 @@
 package nsercServer;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +63,7 @@ public class nsercAward {
 				if((institutionList.size()==0)||(!researchDAO.getCurrentInstitution().equals("")&&(!institutionList.get(0).equals("")))) institutionList.add(0, "");
 				model.addObject("selectedInstitution", researchDAO.getCurrentInstitution());
 				// get result list
-	    List<Research> listResearches = researchDAO.next(0);
+	    List<Research> listResearches = researchDAO.next();
 	    model.addObject("listResearches", listResearches);
 	    model.addObject("pageNum", researchDAO.getPage());
 	    model.setViewName("welcome");
@@ -86,7 +85,7 @@ public class nsercAward {
 		model.addObject("institutionList", researchDAO.getPrevInstitution());
 		model.addObject("selectedInstitution", researchDAO.getCurrentInstitution());
 		// get result list
-	    List<Research> listResearches = researchDAO.prev(0);
+	    List<Research> listResearches = researchDAO.prev();
 	    model.addObject("listResearches", listResearches);
 	    model.addObject("pageNum", researchDAO.getPage());
 	    model.setViewName("welcome");
@@ -132,77 +131,6 @@ public class nsercAward {
 	@RequestMapping("/about")
 	public ModelAndView about(ModelAndView model){
 		model.setViewName("about");
-	    return model;
-	}
-	
-	@RequestMapping(value="/year", method = RequestMethod.GET)
-	public ModelAndView yearListResearches(ModelAndView model){
-		researchDAO.resetPage();
-	    List<Research> listResearches = researchDAO.yearList();
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("year");
-	    return model;
-	}
-	
-	@RequestMapping(value="/yearP", method = RequestMethod.GET)
-	public ModelAndView yearPrevListResearches(ModelAndView model){
-	    List<Research> listResearches = researchDAO.prev(1);
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("year");
-	    return model;
-	}
-	
-	@RequestMapping(value="/yearN", method = RequestMethod.GET)
-	public ModelAndView yearNextListResearches(ModelAndView model){
-	    List<Research> listResearches = researchDAO.next(1);
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("year");
-	    return model;
-	}
-	
-	@RequestMapping(value="/yearS", method = RequestMethod.POST)
-	public ModelAndView yearSearchListResearches(@RequestParam("cyear") String cyear,ModelAndView model){
-		int year = -1;
-		try{
-			year = Integer.parseInt(cyear);
-		}
-		catch (Exception e){}
-		researchDAO.resetPage();
-	    List<Research> listResearches = researchDAO.yearSearchList(year);
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("year");
-	    return model;
-	}
-	
-	@RequestMapping(value="/institution", method = RequestMethod.GET)
-	public ModelAndView institutionListResearches(ModelAndView model){
-		researchDAO.resetPage();
-	    List<Research> listResearches = researchDAO.list();
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("institution");
-	    return model;
-	}
-	
-	@RequestMapping(value="/institutionN", method = RequestMethod.GET)
-	public ModelAndView nextInstitutionListResearches(ModelAndView model){
-	    List<Research> listResearches = researchDAO.next(0);
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("institution");
-	    return model;
-	}
-	
-	@RequestMapping(value="/institutionP", method = RequestMethod.GET)
-	public ModelAndView previousInstitutionListResearches(ModelAndView model){
-	    List<Research> listResearches = researchDAO.prev(0);
-	    model.addObject("listResearches", listResearches);
-	    model.addObject("pageNum", researchDAO.getPage());
-	    model.setViewName("institution");
 	    return model;
 	}
 
