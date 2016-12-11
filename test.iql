@@ -19,30 +19,30 @@ create class Award[
 
 create class Cyear[
 @competitionYear : int,
-@leadName* : string,
+@department* : string,
 @province* : string,
 @institution* : string
 ];
 
-create class Leadname[
+create class Department[
 @competitionYear* : int,
-@leadName : string,
+@department : string,
 @province* : string,
 @institution* : string
 ];
 
 create class Province[
 @competitionYear* : int,
-@leadName* : string,
+@department* : string,
 @province : string,
 @institution* : string
 ];
 
 create class Institution[
-@institution : string,
 @competitionYear* : int,
-@leadName* : string,
-@province* : string
+@department* : string,
+@province* : string,
+@institution : string
 ];
 
 insert Cyear "1994"[@competitionYear:1994,@leadName:{"Physics and Astronomy","Mathematics and Statistics","Gnie civil"},@province:{"British Columbia","Saskatchewan ","Qubec "},@institution:{"University of British Columbia","University of Regina","Universit de Sherbrooke"}];
