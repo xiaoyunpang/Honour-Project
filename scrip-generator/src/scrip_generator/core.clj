@@ -121,21 +121,11 @@
         (string/replace #"\"" "'"))))
 
 (defn- parse-line
-  [{title 0
-    c-year 1
-    f-year 2
-    name 3
-    institution 4
-    department 5
-    province 6
-    amount 7
-    installment 8
-    program 9
-    committee 10
-    subject 11
-    application 12
-    co-researchers 13
-    partners 14
+  [{title 0 c-year 1 f-year 2
+    name 3 institution 4 department 5
+    province 6 amount 7 installment 8
+    program 9 committee 10 subject 11
+    application 12 co-researchers 13 partners 14
     summary 15}]
   (str "insert Award \"" (str table-name (java.util.UUID/randomUUID))
        "\"[@title: \"" (polish-text title) "\", "
