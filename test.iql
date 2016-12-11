@@ -27,7 +27,10 @@ create class Institution[
 ];
 
 insert Cyear "1991"[@competitionYear:1991,@leadName:{"AitKaci, Hassan"},@province:{"British Columbia"},@institution:{"Simon Fraser University"}];
-insert Cyear "1993"[@competitionYear:1993,@leadName:{"Ahmad, Omair","Ahmadi, Majid","Ahmed, Waizuddin"},@province:{"Qubec ","Ontario "},@institution:{"Concordia University","University of Windsor"}];
+insert Cyear "1993"[@competitionYear:1993,
+                    @leadName:{"Ahmad, Omair","Ahmadi, Majid","Ahmed, Waizuddin"},
+                    @province:{"Qubec ","Ontario "},
+                    @institution:{"Concordia University","University of Windsor"}];
 insert Cyear "1994"[@competitionYear:1994,@leadName:{"Ahlborn, Boye","Ahmed, Syed","Aitcin, PierreClaude"},@province:{"British Columbia","Saskatchewan ","Qubec "},@institution:{"University of British Columbia","University of Regina","Universit de Sherbrooke"}];
 insert Cyear "1995"[@competitionYear:1995,@leadName:{"Ahmed, Nasirruddin","Aippersbach, Elke","Airriess, Christopher","Aitcin, PierreClaude","Aarssen, Lonnie","Abbott, Sean","Abcarius, John","Abdalla, Hany","AbdelAziz, Alaa"},@province:{"Ontario ","Outside Canada","Qubec ","Alberta ","Manitoba "},@institution:{"University of Ottawa","University of Toronto","University of Cambridge","Universit de Sherbrooke","Queen's University","University of Alberta","McGill University","Concordia University","University of Manitoba"}];
 insert Cyear "1996"[@competitionYear:1996,@leadName:{"Ahmed, Abdul","Aimeur, Esma","Aitcin, PierreClaude","Abad, Prakash","Abawajy, Jemal","Abbott, FrancesVivien","Abcarius, Nicole","Abdalla, Hany"},@province:{"Qubec ","Ontario ","Manitoba "},@institution:{"McGill University","Universit de Montral","Universit de Sherbrooke","McMaster University","Carleton University","GE Glegg Water Technologies Inc.","University of Manitoba"}];
