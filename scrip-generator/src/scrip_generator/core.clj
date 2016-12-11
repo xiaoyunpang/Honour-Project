@@ -14,7 +14,8 @@
     (with-open [f (io/writer (str output-dir "insert-cyear.iql"))]
       (let [read-map (->> inf
                           line-seq
-                          (map #(string/split % #"@competitionYear: |, @fiscalYear|, @leadName: |, @institution: |, @department: |, @province: |, @amount: "))
+                          (map #(string/split % #"@competitionYear: |, @fiscalYear|, @leadName: |, 
+                                              @institution: |, @department: |, @province: |, @amount: "))
                           (map (fn [row]
                                  (vec (concat (subvec row 1 2) (subvec row 4 7)))))
                           (group-by first))
