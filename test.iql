@@ -45,70 +45,11 @@ create class Institution[
 @province* : string
 ];
 
-insert Cyear "1991"[@competitionYear:1991,@leadName:{"AitKaci, Hassan"},@province:{"British Columbia"},@institution:{"Simon Fraser University"}];
+insert Cyear "1994"[@competitionYear:1994,@leadName:{"Physics and Astronomy","Mathematics and Statistics","Gnie civil"},@province:{"British Columbia","Saskatchewan ","Qubec "},@institution:{"University of British Columbia","University of Regina","Universit de Sherbrooke"}];
+insert Leadname "1248a02c-35d3-4378-a1b6-c2b8166f607e"[@competitionYear:{1993,1995},@leadName:"Electrical Engineering",@province:{"Ontario ","Qubec "},@institution:{"University of Windsor","University of Ottawa","McGill University"}];
+insert Institution "d7e5ab62-09d5-4a70-bfba-7cd4e732f52c"[@competitionYear:{1993,1995},@leadName:{"Electrical and Computer Engineering","Mechanical Engineering","Civil Engineering"},@province:{"Qubec "},@institution:"Concordia University"];
+insert Province "Ontario"[@competitionYear:{1993,1995,1996},@leadName:{"Electrical Engineering","Medical Genetics","Biology","Management Sci. & Information Sys.","Computer Science, School of","Head Office"},@province:"Ontario ",@institution:{"University of Windsor","University of Ottawa","University of Toronto","Queen's University","McMaster University","Carleton University","GE Glegg Water Technologies Inc."}];
 
-insert Cyear "1993"[@competitionYear:1993,
-                    @leadName:{"Ahmad, Omair","Ahmadi, Majid","Ahmed, Waizuddin"},
-                    @province:{"Qubec ","Ontario "},
-                    @institution:{"Concordia University","University of Windsor"}];
-                    
-insert Cyear "1994"[@competitionYear:1994,@leadName:{"Ahlborn, Boye","Ahmed, Syed","Aitcin, PierreClaude"},@province:{"British Columbia","Saskatchewan ","Qubec "},@institution:{"University of British Columbia","University of Regina","Universit de Sherbrooke"}];
-insert Cyear "1995"[@competitionYear:1995,@leadName:{"Ahmed, Nasirruddin","Aippersbach, Elke","Airriess, Christopher","Aitcin, PierreClaude","Aarssen, Lonnie","Abbott, Sean","Abcarius, John","Abdalla, Hany","AbdelAziz, Alaa"},@province:{"Ontario ","Outside Canada","Qubec ","Alberta ","Manitoba "},@institution:{"University of Ottawa","University of Toronto","University of Cambridge","Universit de Sherbrooke","Queen's University","University of Alberta","McGill University","Concordia University","University of Manitoba"}];
-insert Cyear "1996"[@competitionYear:1996,@leadName:{"Ahmed, Abdul","Aimeur, Esma","Aitcin, PierreClaude","Abad, Prakash","Abawajy, Jemal","Abbott, FrancesVivien","Abcarius, Nicole","Abdalla, Hany"},@province:{"Qubec ","Ontario ","Manitoba "},@institution:{"McGill University","Universit de Montral","Universit de Sherbrooke","McMaster University","Carleton University","GE Glegg Water Technologies Inc.","University of Manitoba"}];
-
-insert Leadname "AitKaciHassan"[@competitionYear:{1991},@leadName:"AitKaci, Hassan",@province:{"British Columbia"},@institution:{"Simon Fraser University"}];
-insert Leadname "AhmadOmair"[@competitionYear:{1993},@leadName:"Ahmad, Omair",@province:{"Qubec "},@institution:{"Concordia University"}];
-insert Leadname "AhmadiMajid"[@competitionYear:{1993},@leadName:"Ahmadi, Majid",@province:{"Ontario "},@institution:{"University of Windsor"}];
-insert Leadname "AhmedWaizuddin"[@competitionYear:{1993},@leadName:"Ahmed, Waizuddin",@province:{"Qubec "},@institution:{"Concordia University"}];
-insert Leadname "AhlbornBoye"[@competitionYear:{1994},@leadName:"Ahlborn, Boye",@province:{"British Columbia"},@institution:{"University of British Columbia"}];
-insert Leadname "AhmedSyed"[@competitionYear:{1994},@leadName:"Ahmed, Syed",@province:{"Saskatchewan "},@institution:{"University of Regina"}];
-insert Leadname "AitcinPierreClaude"[@competitionYear:{1994,1995,1996},@leadName:"Aitcin, PierreClaude",@province:{"Qubec"},@institution:{"Universit de Sherbrooke"}];
-insert Leadname "AhmedNasirruddin"[@competitionYear:{1995},@leadName:"Ahmed, Nasirruddin",@province:{"Ontario "},@institution:{"University of Ottawa"}];
-insert Leadname "AippersbachElke"[@competitionYear:{1995},@leadName:"Aippersbach, Elke",@province:{"Ontario "},@institution:{"University of Toronto"}];
-insert Leadname "AirriessChristopher"[@competitionYear:{1995},@leadName:"Airriess, Christopher",@province:{"Outside Canada"},@institution:{"University of Cambridge"}];
-insert Leadname "AarssenLonnie"[@competitionYear:{1995},@leadName:"Aarssen, Lonnie",@province:{"Ontario "},@institution:{"Queen's University"}];
-insert Leadname "AbbottSean"[@competitionYear:{1995},@leadName:"Abbott, Sean",@province:{"Alberta "},@institution:{"University of Alberta"}];
-insert Leadname "AbcariusJohn"[@competitionYear:{1995},@leadName:"Abcarius, John",@province:{"Qubec "},@institution:{"McGill University"}];
-
-insert Leadname "AbdallaHany"[@competitionYear:{1995,1996},
-                              @leadName:"Abdalla, Hany",
-                              @province:{"Qubec ","Manitoba "},
-                              @institution:{"Concordia University","University of Manitoba"}];
-
-insert Leadname "AbdelAzizAlaa"[@competitionYear:{1995},@leadName:"AbdelAziz, Alaa",@province:{"Manitoba "},@institution:{"University of Manitoba"}];
-insert Leadname "AhmedAbdul"[@competitionYear:{1996},@leadName:"Ahmed, Abdul",@province:{"Qubec "},@institution:{"McGill University"}];
-insert Leadname "AimeurEsma"[@competitionYear:{1996},@leadName:"Aimeur, Esma",@province:{"Qubec "},@institution:{"Universit de Montral"}];
-insert Leadname "AbadPrakash"[@competitionYear:{1996},@leadName:"Abad, Prakash",@province:{"Ontario "},@institution:{"McMaster University"}];
-insert Leadname "AbawajyJemal"[@competitionYear:{1996},@leadName:"Abawajy, Jemal",@province:{"Ontario "},@institution:{"Carleton University"}];
-insert Leadname "AbbottFrancesVivien"[@competitionYear:{1996},@leadName:"Abbott, FrancesVivien",@province:{"Qubec "},@institution:{"McGill University"}];
-insert Leadname "AbcariusNicole"[@competitionYear:{1996},@leadName:"Abcarius, Nicole",@province:{"Ontario "},@institution:{"GE Glegg Water Technologies Inc."}];
-
-insert Province "BC"[@competitionYear:{1991,1994},@leadName:{"Ahlborn, Boye","AitKaci, Hassan"},@province:"British Columbia",@institution:{"University of British Columbia","Simon Fraser University"}];
-insert Province "Qubec"[@competitionYear:{1993,1994,1995,1996},@leadName:{"Ahmad, Omair","Ahmed, Waizuddin","Ahmed, Abdul","Aimeur, Esma","Aitcin, PierreClaude","Abbott, FrancesVivien","Abcarius, John","Abdalla, Hany"},@province:"Qubec ",@institution:{"Concordia University","McGill University","Universit de Montral","Universit de Sherbrooke"}];
-insert Province "Ontario"[@competitionYear:{1993,1995,1996},@leadName:{"Ahmadi, Majid","Ahmed, Nasirruddin","Aippersbach, Elke","Aarssen, Lonnie","Abad, Prakash","Abawajy, Jemal","Abcarius, Nicole"},@province:"Ontario ",@institution:{"University of Windsor","University of Ottawa","University of Toronto","Queen's University","McMaster University","Carleton University","GE Glegg Water Technologies Inc."}];
-insert Province "Manitoba"[@competitionYear:{1995,1996},@leadName:{"Abdalla, Hany","AbdelAziz, Alaa"},@province:"Manitoba",@institution:{"University of Manitoba"}];
-insert Province "Saskatchewan"[@competitionYear:{1994},@leadName:{"Ahmed, Syed"},@province:"Saskatchewan ",@institution:{"University of Regina"}];
-insert Province "Alberta"[@competitionYear:{1995},@leadName:{"Abbott, Sean"},@province:"Alberta ",@institution:{"University of Alberta"}];
-insert Province "Outside"[@competitionYear:{1995},@leadName:{"Airriess, Christopher"},@province:"Outside Canada",@institution:{"University of Cambridge"}];
-
-
-insert Institution "UniversityofBritishColumbia"[@institution:"University of British Columbia",@competitionYear:{1994},@leadName:{"Ahlborn, Boye"},@province:{"British Columbia"}];
-insert Institution "SimonFraserUniversity"[@institution:"Simon Fraser University",@competitionYear:{1991},@leadName:{"AitKaci, Hassan"},@province:{"British Columbia"}];
-insert Institution "ConcordiaUniversity"[@institution:"Concordia University",@competitionYear:{1993,1995},@leadName:{"Ahmad, Omair","Ahmed, Waizuddin","Abdalla, Hany"},@province:{"Qubec "}];
-insert Institution "McGillUniversity"[@institution:"McGill University",@competitionYear:{1995,1996},@leadName:{"Ahmed, Abdul","Abbott, FrancesVivien","Abcarius, John"},@province:{"Qubec "}];
-insert Institution "UniversitdeMontral"[@institution:"Universit de Montral",@competitionYear:{1996},@leadName:{"Aimeur, Esma"},@province:{"Qubec "}];
-insert Institution "UniversitdeSherbrooke"[@institution:"Universit de Sherbrooke",@competitionYear:{1994,1995,1996},@leadName:{"Aitcin, PierreClaude"},@province:{"Qubec "}];
-insert Institution "UniversityofWindsor"[@institution:"University of Windsor",@competitionYear:{1993},@leadName:{"Ahmadi, Majid"},@province:{"Ontario "}];
-insert Institution "UniversityofOttawa"[@institution:"University of Ottawa",@competitionYear:{1995},@leadName:{"Ahmed, Nasirruddin"},@province:{"Ontario "}];
-insert Institution "UniversityofToronto"[@institution:"University of Toronto",@competitionYear:{1995},@leadName:{"Aippersbach, Elke"},@province:{"Ontario "}];
-insert Institution "QueensUniversity"[@institution:"Queen's University",@competitionYear:{1995},@leadName:{"Aarssen, Lonnie"},@province:{"Ontario "}];
-insert Institution "McMasterUniversity"[@institution:"McMaster University",@competitionYear:{1996},@leadName:{"Abad, Prakash"},@province:{"Ontario "}];
-insert Institution "CarletonUniversity"[@institution:"Carleton University",@competitionYear:{1996},@leadName:{"Abawajy, Jemal"},@province:{"Ontario "}];
-insert Institution "GEGleggWaterTechnologiesInc"[@institution:"GE Glegg Water Technologies Inc.",@competitionYear:{1996},@leadName:{"Abcarius, Nicole"},@province:{"Ontario "}];
-insert Institution "UniversityofManitoba"[@institution:"University of Manitoba",@competitionYear:{1995,1996},@leadName:{"Abdalla, Hany","AbdelAziz, Alaa"},@province:{"Manitoba "}];
-insert Institution "UniversityofRegina"[@institution:"University of Regina",@competitionYear:{1994},@leadName:{"Ahmed, Syed"},@province:{"Saskatchewan "}];
-insert Institution "UniversityofAlberta"[@institution:"University of Alberta",@competitionYear:{1995},@leadName:{"Abbott, Sean"},@province:{"Alberta "}];
-insert Institution "UniversityofCambridge"[@institution:"University of Cambridge",@competitionYear:{1995},@leadName:{"Airriess, Christopher"},@province:{"Outside Canada"}];
 
 
 insert Award "Award-id1"[@title: "Vortex dynamics", 
