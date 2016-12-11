@@ -8,11 +8,11 @@ public interface ResearchDAO {
 	public List<Research> prev();
 	
 	public List<Integer> getCyearList();
-	public List<String> getLnameList();
+	public List<String> getDepartmentList();
 	public List<String> getProvinceList();
 	public List<String> getInstitutionList();
 	
-	public void update(String inputCyear, String inputLname,
+	public void update(String inputCyear, String inputDepartment,
 			String inputProvince, String inputinstitution);
 	
 	
@@ -20,12 +20,12 @@ public interface ResearchDAO {
 	public void resetPage();
 	public void setPage(int p);
 	public int getCurrentCyear();
-	public String getCurrentLname();
+	public String getCurrentDepartment();
 	public String getCurrentProvince();
 	public String getCurrentInstitution();
 	
 	public List<Integer> getPrevCyear();
-	public List<String> getPrevLname();
+	public List<String> getPrevDepartment();
 	public List<String> getPrevProvince();
 	public List<String> getPrevInstitution();
 
