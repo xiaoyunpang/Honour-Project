@@ -46,10 +46,12 @@ create class Institution[
 ];
 
 insert Cyear "1991"[@competitionYear:1991,@leadName:{"AitKaci, Hassan"},@province:{"British Columbia"},@institution:{"Simon Fraser University"}];
+
 insert Cyear "1993"[@competitionYear:1993,
                     @leadName:{"Ahmad, Omair","Ahmadi, Majid","Ahmed, Waizuddin"},
                     @province:{"Qubec ","Ontario "},
                     @institution:{"Concordia University","University of Windsor"}];
+                    
 insert Cyear "1994"[@competitionYear:1994,@leadName:{"Ahlborn, Boye","Ahmed, Syed","Aitcin, PierreClaude"},@province:{"British Columbia","Saskatchewan ","Qubec "},@institution:{"University of British Columbia","University of Regina","Universit de Sherbrooke"}];
 insert Cyear "1995"[@competitionYear:1995,@leadName:{"Ahmed, Nasirruddin","Aippersbach, Elke","Airriess, Christopher","Aitcin, PierreClaude","Aarssen, Lonnie","Abbott, Sean","Abcarius, John","Abdalla, Hany","AbdelAziz, Alaa"},@province:{"Ontario ","Outside Canada","Qubec ","Alberta ","Manitoba "},@institution:{"University of Ottawa","University of Toronto","University of Cambridge","Universit de Sherbrooke","Queen's University","University of Alberta","McGill University","Concordia University","University of Manitoba"}];
 insert Cyear "1996"[@competitionYear:1996,@leadName:{"Ahmed, Abdul","Aimeur, Esma","Aitcin, PierreClaude","Abad, Prakash","Abawajy, Jemal","Abbott, FrancesVivien","Abcarius, Nicole","Abdalla, Hany"},@province:{"Qubec ","Ontario ","Manitoba "},@institution:{"McGill University","Universit de Montral","Universit de Sherbrooke","McMaster University","Carleton University","GE Glegg Water Technologies Inc.","University of Manitoba"}];
@@ -67,7 +69,12 @@ insert Leadname "AirriessChristopher"[@competitionYear:{1995},@leadName:"Airries
 insert Leadname "AarssenLonnie"[@competitionYear:{1995},@leadName:"Aarssen, Lonnie",@province:{"Ontario "},@institution:{"Queen's University"}];
 insert Leadname "AbbottSean"[@competitionYear:{1995},@leadName:"Abbott, Sean",@province:{"Alberta "},@institution:{"University of Alberta"}];
 insert Leadname "AbcariusJohn"[@competitionYear:{1995},@leadName:"Abcarius, John",@province:{"Qubec "},@institution:{"McGill University"}];
-insert Leadname "AbdallaHany"[@competitionYear:{1995,1996},@leadName:"Abdalla, Hany",@province:{"Qubec ","Manitoba "},@institution:{"Concordia University","University of Manitoba"}];
+
+insert Leadname "AbdallaHany"[@competitionYear:{1995,1996},
+                              @leadName:"Abdalla, Hany",
+                              @province:{"Qubec ","Manitoba "},
+                              @institution:{"Concordia University","University of Manitoba"}];
+
 insert Leadname "AbdelAzizAlaa"[@competitionYear:{1995},@leadName:"AbdelAziz, Alaa",@province:{"Manitoba "},@institution:{"University of Manitoba"}];
 insert Leadname "AhmedAbdul"[@competitionYear:{1996},@leadName:"Ahmed, Abdul",@province:{"Qubec "},@institution:{"McGill University"}];
 insert Leadname "AimeurEsma"[@competitionYear:{1996},@leadName:"Aimeur, Esma",@province:{"Qubec "},@institution:{"Universit de Montral"}];
@@ -102,6 +109,23 @@ insert Institution "UniversityofManitoba"[@institution:"University of Manitoba",
 insert Institution "UniversityofRegina"[@institution:"University of Regina",@competitionYear:{1994},@leadName:{"Ahmed, Syed"},@province:{"Saskatchewan "}];
 insert Institution "UniversityofAlberta"[@institution:"University of Alberta",@competitionYear:{1995},@leadName:{"Abbott, Sean"},@province:{"Alberta "}];
 insert Institution "UniversityofCambridge"[@institution:"University of Cambridge",@competitionYear:{1995},@leadName:{"Airriess, Christopher"},@province:{"Outside Canada"}];
+
+
+insert Award "Award-id1"[@title: "Vortex dynamics", 
+                         @competitionYear: 1994, 
+                         @fiscalYear: "1996-1997", 
+                         @leadName: "Ahlborn, Boye", 
+                         @institution: "University of British Columbia", 
+                         @department: "Physics and Astronomy ", 
+                         @province: "British Columbia", 
+                         @amount: 10000, @installment: "3\-4", 
+                         @program: "Discovery Grants Program - Individual", 
+                         @committee: "General Physics", 
+                         @subject: "Not available", 
+                         @areaOfApplication: "Not available", 
+                         @coresearchers: "No Co-Researcher", 
+                         @partners: "No Partners", 
+                         @summary: "No summary - Aucun sommaire"];
 
 
 insert Award "Award-System1"[@title: "Vortex dynamics", @competitionYear: 1994, @fiscalYear: "1996-1997", @leadName: "Ahlborn, Boye", @institution: "University of British Columbia", @department: "Physics and Astronomy", @province: "British Columbia", @amount: 10000, @installment: "3\-4", @program: "Discovery Grants Program - Individual", @committee: "General Physics", @subject: "Not available", @areaOfApplication: "Not available", @coresearchers: "No Co-Researcher", @partners: "No Partners", @summary: "No summary - Aucun sommaire"];
