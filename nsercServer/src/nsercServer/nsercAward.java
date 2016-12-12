@@ -94,7 +94,7 @@ public class nsercAward {
 	
 	@RequestMapping(value="/welcomeS", method = RequestMethod.POST)
 	public ModelAndView titleSearchListResearches(@RequestParam("cyear") String inputCyear,
-			@RequestParam("lname") String inputDepartment,
+			@RequestParam("department") String inputDepartment,
 			@RequestParam("province") String inputProvince,
 			@RequestParam("institution") String inputinstitution,
 			ModelAndView model){
