@@ -18,10 +18,12 @@ public class Research {
 	private String partners;
 	private String summary;
 	
-	public Research() {
-		
-	}
+	public Research() {}
 	
+	// getters ...
+	// setters ...
+	
+	// Initialization constructor
 	public Research(String title, int cYear, String fYear, String name, 
 			String institution, String department, String province, 
 			int amount, String installment, String program, String committee, 
