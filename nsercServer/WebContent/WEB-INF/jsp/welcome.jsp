@@ -41,39 +41,39 @@
 				<td><select name="cyear">
 					<option selected>${selectedCyear}</option>
 					<c:forEach var="c" items="${cyearList}">
-                		<option value=${c}>${c}</option>
-                	</c:forEach>
+                				<option value=${c}>${c}</option>
+                			</c:forEach>
 				    </select>
-                </td>
+                		</td>
 
-                <td>Department:</td>
-				<td><select name="lname">
-					<option selected>${selectedLname}</option>
-					<c:forEach var="n" items="${lnameList}">
-                		<option value="${n}">${n}</option>
-                	</c:forEach>
+                		<td>Department:</td>
+				<td><select name="department">
+					<option selected>${selectedDepartment}</option>
+					<c:forEach var="n" items="${departmentList}">
+                				<option value="${n}">${n}</option>
+                			</c:forEach>
 				    </select>
-                </td>
-            </tr>
+                		</td>
+           		 </tr>
 
-            <tr>
-                <td>Province:</td>
+            		<tr>
+                		<td>Province:</td>
 				<td><select name="province">
 					<option selected>${selectedProvince}</option>
 					<c:forEach var="p" items="${provinceList}">
-                		<option value="${p}">${p}</option>
-                	</c:forEach>
+                				<option value="${p}">${p}</option>
+                			</c:forEach>
 				    </select>
-                </td>
+               			</td>
 
-                <td>Institution:</td>
+                		<td>Institution:</td>
 				<td><select name="institution">
 					<option selected>${selectedInstitution}</option>
 					<c:forEach var="i" items="${institutionList}">
-                		<option value="${i}">${i}</option>
-                	</c:forEach>
+                				<option value="${i}">${i}</option>
+                			</c:forEach>
 				    </select>
-                </td>
+                		</td>
 			</tr>
 			
 			<tr>
@@ -81,7 +81,7 @@
 			</tr>
 		</table>
 		</form>
-  	</div>
+  		</div>
 
 		<table border="1">
                 <th>No</th>
