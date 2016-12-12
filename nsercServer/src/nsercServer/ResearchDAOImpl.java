@@ -13,13 +13,13 @@ public class ResearchDAOImpl implements ResearchDAO{
 	private int currentPageSize;
 	
 	private int cYear;
-	private String leadname;
+	private String department;
 	private String province;
 	private String institution;
-	public int statusCyear, statusLeadname, statusProvince, statusInstitution;
+	public int statusCyear, statusDepartment, statusProvince, statusInstitution;
 	
 	private List<Integer> prevCyear;
-	private List<String> prevLeadname;
+	private List<String> prevDepartment;
 	private List<String> prevProvince;
 	private List<String> prevInstitution;
 	
@@ -28,12 +28,12 @@ public class ResearchDAOImpl implements ResearchDAO{
 		currentPageSize = 0;
 		
 		cYear = -1;
-		leadname = "";
+		department = "";
 		province = "";
 		institution = "";
-		statusCyear = statusLeadname = statusProvince = statusInstitution = 0;
+		statusCyear = statusDepartment = statusProvince = statusInstitution = 0;
 		prevCyear = new ArrayList<Integer>();
-		prevLeadname = new ArrayList<String>();
+		prevDepartment = new ArrayList<String>();
 		prevProvince = new ArrayList<String>();
 		prevInstitution = new ArrayList<String>();
 		inm = dataSource;
@@ -43,7 +43,7 @@ public class ResearchDAOImpl implements ResearchDAO{
 	public List<Research> list() {
 		String c="",n="",p="",in = "", fi = "";
 		if(this.cYear!=-1) { c = "$x/competitionYear:$c="+cYear+","; }
-		if(!leadname.equals("")) { n = "$x/department:$n=\""+leadname+"\","; }
+		if(!department.equals("")) { n = "$x/department:$n=\""+department+"\","; }
 		if(!province.equals("")) { p = "$x/province:$p=\""+province+"\","; }
 		if(!institution.equals("")) { in = "$x/institution:$i=\""+institution+"\","; }	
 		String iql = "query Award $x("+((page-1)*10+1)+",10) construct $x[];";
@@ -108,7 +108,7 @@ public class ResearchDAOImpl implements ResearchDAO{
 	@Override
 	public int getCurrentCyear(){ return this.cYear; }
 	@Override
-	public String getCurrentLname(){ return this.leadname; }
+	public String getCurrentDepartment(){ return this.department; }
 	@Override
 	public String getCurrentProvince(){ return this.province; }
 	@Override
@@ -117,7 +117,7 @@ public class ResearchDAOImpl implements ResearchDAO{
 	@Override
 	public List<Integer> getPrevCyear(){ return this.prevCyear; }
 	@Override
-	public List<String> getPrevLname(){ return this.prevLeadname; }
+	public List<String> getPrevDepartment(){ return this.prevDepartment; }
 	@Override
 	public List<String> getPrevProvince(){ return this.prevProvince; }
 	@Override
@@ -127,22 +127,22 @@ public class ResearchDAOImpl implements ResearchDAO{
 	public void setPage(int p){ page = p;}
 	@Override
 	public void resetPage(){ page = 1; currentPageSize = 0; cYear = -1;
-	leadname = "";
+	department = "";
 	province = "";
 	institution = "";
-	statusCyear = statusLeadname = statusProvince = statusInstitution = 0;
+	statusCyear = statusDepartment = statusProvince = statusInstitution = 0;
 	prevCyear.clear();
-	prevLeadname.clear();
+	prevDepartment.clear();
 	prevProvince.clear();
 	prevInstitution.clear();}
 	
 	@Override
-	public void update(String inputCyear, String inputLname,
+	public void update(String inputCyear, String inputDepartment,
 			String inputProvince, String inputinstitution) {
 		int year;
 		if(inputCyear.equals("")) year = -1; else year = Integer.parseInt(inputCyear);
 		if(cYear == year) this.statusCyear = 0; else { cYear = year; this.statusCyear = 1; }
-		if(leadname.equals(inputLname)) this.statusLeadname = 0; else { leadname = inputLname; this.statusLeadname = 1; }
+		if(department.equals(inputDepartment)) this.statusDepartment = 0; else { department = inputDepartment; this.statusDepartment = 1; }
 		if(province.equals(inputProvince)) this.statusProvince = 0; else { province = inputProvince; this.statusProvince = 1; }
 		if(institution.equals(inputinstitution)) this.statusInstitution = 0; else { institution = inputinstitution; this.statusInstitution = 1; }
 	}
@@ -153,13 +153,13 @@ public class ResearchDAOImpl implements ResearchDAO{
 		List<Integer> cyearList = new ArrayList<Integer>();
 		if(this.statusCyear == 1)
 			return this.prevCyear;
-		if((statusCyear==0&&statusInstitution==0&&statusLeadname==0&&statusProvince==0)&&
-				(cYear!=-1||(!leadname.equals(""))||(!province.equals(""))||(!institution.equals(""))))
+		if((statusCyear==0&&statusInstitution==0&&statusDepartment==0&&statusProvince==0)&&
+				(cYear!=-1||(!department.equals(""))||(!province.equals(""))||(!institution.equals(""))))
 			return this.prevCyear;
 		ResultSet res;
-		if(statusInstitution==1||statusLeadname==1||statusProvince==1) {
+		if(statusInstitution==1||statusDepartment==1||statusProvince==1) {
 			String n="",p="",in = "";
-			if(!leadname.equals("")) { n = "$x/leadName:$n=\""+leadname+"\","; }
+			if(!department.equals("")) { n = "$x/department:$n=\""+department+"\","; }
 			if(!province.equals("")) { p = "$x/province:$p=\""+province+"\","; }
 			if(!institution.equals("")) { in = "$x/institution:$i=\""+institution+"\","; }	
 			if(!((n+p+in).equals(""))) 
@@ -184,14 +184,14 @@ public class ResearchDAOImpl implements ResearchDAO{
 	}
 	
 	@Override
-	public List<String> getLnameList() {
-		String iql = "query Leadname $x/leadName: $y construct $y order by $y asc;";
-		List<String> lnameList = new ArrayList<String>();
-		if(this.statusLeadname == 1)
-			return prevLeadname;
-		if((statusCyear==0&&statusInstitution==0&&statusLeadname==0&&statusProvince==0)&&
-				(cYear!=-1||(!leadname.equals(""))||(!province.equals(""))||(!institution.equals(""))))
-			return prevLeadname;
+	public List<String> getDepartmentList() {
+		String iql = "query Department $x/department: $y construct $y order by $y asc;";
+		List<String> departmentList = new ArrayList<String>();
+		if(this.statusDepartment == 1)
+			return prevDepartment;
+		if((statusCyear==0&&statusInstitution==0&&statusDepartment==0&&statusProvince==0)&&
+				(cYear!=-1||(!department.equals(""))||(!province.equals(""))||(!institution.equals(""))))
+			return prevDepartment;
 		ResultSet res;
 		if(statusInstitution==1||statusCyear==1||statusProvince==1) {
 			String c="",p="",in = "";
@@ -199,24 +199,24 @@ public class ResearchDAOImpl implements ResearchDAO{
 			if(!province.equals("")) { p = "$x/province:$p=\""+province+"\","; }
 			if(!institution.equals("")) { in = "$x/institution:$i=\""+institution+"\","; }	
 			if(!((c+p+in).equals(""))) 
-				iql = "query Leadname "+c+p+in+" $x/leadName:$n construct $n order by $n asc;";
+				iql = "query Department "+c+p+in+" $x/department:$n construct $n order by $n asc;";
 			res = inm.executeQuery(iql);
 			if(res.variableSize()>0&&res.valueSize()>0) {
 				for(int i=0;i<res.valueSize();i++) {
-					lnameList.add(res.getString(i));
+					departmentList.add(res.getString(i));
 				}
 			}
-			this.prevLeadname = lnameList;
-			return lnameList;
+			this.prevDepartment = departmentList;
+			return departmentList;
 		}
 		res = inm.executeQuery(iql);
 		if(res.variableSize()>0&&res.valueSize()>0) {
 			for(int i=0;i<res.valueSize();i++) {
-				lnameList.add(res.getString(i));
+				departmentList.add(res.getString(i));
 			}
 		}
-		this.prevLeadname = lnameList;
-		return lnameList;
+		this.prevDepartment = departmentList;
+		return departmentList;
 	}
 	
 	@Override
@@ -225,14 +225,14 @@ public class ResearchDAOImpl implements ResearchDAO{
 		List<String> provinceList = new ArrayList<String>();
 		if(this.statusProvince == 1)
 			return this.prevProvince;
-		if((statusCyear==0&&statusInstitution==0&&statusLeadname==0&&statusProvince==0)&&
-				(cYear!=-1||(!leadname.equals(""))||(!province.equals(""))||(!institution.equals(""))))
+		if((statusCyear==0&&statusInstitution==0&&statusDepartment==0&&statusProvince==0)&&
+				(cYear!=-1||(!department.equals(""))||(!province.equals(""))||(!institution.equals(""))))
 			return prevProvince;
 		ResultSet res;
-		if(statusInstitution==1||statusCyear==1||statusLeadname==1) {
+		if(statusInstitution==1||statusCyear==1||statusDepartment==1) {
 			String c="",n="",in = "";
 			if(cYear!=-1) { c = "$x/competitionYear:$c="+cYear+","; }
-			if(!leadname.equals("")) { n = "$x/leadName:$n=\""+leadname+"\","; }
+			if(!department.equals("")) { n = "$x/department:$n=\""+department+"\","; }
 			if(!institution.equals("")) { in = "$x/institution:$i=\""+institution+"\","; }	
 			if(!((c+n+in).equals(""))) 
 				iql = "query Province "+c+n+in+" $x/province:$p construct $p order by $p asc;";
@@ -261,14 +261,14 @@ public class ResearchDAOImpl implements ResearchDAO{
 		List<String> institutionList = new ArrayList<String>();
 		if(this.statusInstitution == 1)
 			return this.prevInstitution;
-		if((statusCyear==0&&statusInstitution==0&&statusLeadname==0&&statusProvince==0)&&
-				(cYear!=-1||(!leadname.equals(""))||(!province.equals(""))||(!institution.equals(""))))
+		if((statusCyear==0&&statusInstitution==0&&statusDepartment==0&&statusProvince==0)&&
+				(cYear!=-1||(!department.equals(""))||(!province.equals(""))||(!institution.equals(""))))
 			return prevInstitution;
 		ResultSet res;
-		if(statusProvince==1||statusCyear==1||statusLeadname==1) {
+		if(statusProvince==1||statusCyear==1||statusDepartment==1) {
 			String c="",n="",p = "";
 			if(cYear!=-1) { c = "$x/competitionYear:$c="+cYear+","; }
-			if(!leadname.equals("")) { n = "$x/leadName:$n=\""+leadname+"\","; }
+			if(!department.equals("")) { n = "$x/department:$n=\""+department+"\","; }
 			if(!province.equals("")) { p = "$x/province:$p=\""+province+"\","; }	
 			if(!((c+n+p).equals(""))) 
 				iql = "query Institution "+c+n+p+" $x/institution:$i construct $i order by $i asc;";
